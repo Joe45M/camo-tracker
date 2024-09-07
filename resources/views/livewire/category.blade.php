@@ -42,14 +42,14 @@
     <hr class="mt-10 border-t-white/20">
 
 
-    <div class="flex h-64 space-between">
-       <div class="pt-10">
+    <div class="flex flex-wrap  space-between">
+       <div class="h-64 pt-10">
            <livewire:livewire-pie-chart
                key="{{ $chart->reactiveKey() }}"
                :pie-chart-model="$chart"
            />
        </div>
-        <div class="text-center border-l border-l-white/20 pl-5 lg:pl-20 items-center flex">
+        <div class="text-center h-64 border-l border-l-white/20 pl-5 lg:px-20 items-center flex">
             <div>
                 <div class="text-center text-[48px]">
                     {{ $stats['completed'] }} /
@@ -58,5 +58,6 @@
                 {{ strtoupper($category) }} camos completed.
             </div>
         </div>
+        <livewire:compare-friends :mode="$mode" :category="$category"></livewire:compare-friends>
     </div>
 </div>
