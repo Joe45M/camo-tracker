@@ -53,21 +53,21 @@ jobs:
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
       - name: Deploy app
-        run: rsync -avz ./app ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+        run: rsync -avz ./app ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
       - name: Deploy routes
-        run: rsync -avz ./routes ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+        run: rsync -avz ./routes ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
       - name: Deploy database
-        run: rsync -avz ./database ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+        run: rsync -avz ./database ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
       - name: Deploy config
-        run: rsync -avz ./config ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+        run: rsync -avz ./config ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
       - name: Deploy views
-        run: rsync -avz ./resources/views ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/resources/
+        run: rsync -avz ./resources/views ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/resources/
       - name: Deploy vendor
-        run: rsync -avz ./vendor ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+        run: rsync -avz ./vendor ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
       - name: cache and up
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: cd /var/www/vhosts/camos.elitegamerinsights.com/httpdocs/ && php artisan package:discover && php artisan vendor:publish --tag=config && php artisan view:clear && php artisan config:clear && php artisan config:cache && php artisan migrate && sudo chmod -R gu+w storage && sudo chmod -R guo+w storage &&  php artisan up
+          command: cd /var/www/vhosts/camos.elitegamerinsights.com/httpdocs/ && php artisan package:discover && php artisan vendor:publish --tag=config && php artisan view:clear && php artisan config:clear && php artisan config:cache && php artisan migrate && php artisan up && sudo chmod -R gu+w storage && sudo chmod -R guo+w storage
           host: ${{ secrets.SSH_HOST }}
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
