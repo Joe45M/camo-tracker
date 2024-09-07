@@ -1,0 +1,73 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "8.2"
+      - name: Debug
+        run: php -v
+      - uses: "ramsey/composer-install@v2"
+        with:
+          composer-options: "--ignore-platform-reqs --optimize-autoloader"
+      - name: Use Node.js 15.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: npm ci
+      - run: npm run production
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: Deploy public
+        run: rsync -avz ./public ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+      - name: cache
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: cd /var/www/vhosts/camos.elitegamerinsights.com/httpdocs/ && php artisan down
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy app
+        run: rsync -avz ./app ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+      - name: Deploy routes
+        run: rsync -avz ./routes ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+      - name: Deploy database
+        run: rsync -avz ./database ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+      - name: Deploy config
+        run: rsync -avz ./config ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+      - name: Deploy views
+        run: rsync -avz ./resources/views ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/resources/
+      - name: Deploy vendor
+        run: rsync -avz ./vendor ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+      - name: cache and up
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: cd /var/www/html && php artisan package:discover && php artisan vendor:publish --tag=config && php artisan view:cache && php artisan config:clear && php artisan config:cache && php artisan migrate && sudo chmod -R gu+w storage && sudo chmod -R guo+w storage &&  php artisan up
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
