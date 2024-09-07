@@ -51,7 +51,7 @@ jobs:
           command: cd /var/www/vhosts/camos.elitegamerinsights.com/httpdocs/ && php artisan down
           host: ${{ secrets.SSH_HOST }}
           username: root
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: ${{ secrets.SSH_PASSWORD }}
       - name: Deploy app
         run: rsync -avz ./app ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
       - name: Deploy routes
