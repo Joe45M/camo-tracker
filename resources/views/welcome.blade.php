@@ -14,7 +14,7 @@
             </div>
 
             <div class="flex">
-                <a href="{{ route('register') }}" class="text-[22px] bg-brand/20 border border-brand p-3 px-10">Sign up</a>
+                <a href="{{ route('register') }}" class="text-[22px] bg-brand/20 border border-brand p-3 px-10 hover:bg-brand">Sign up</a>
 
             </div>
 
