@@ -41,13 +41,7 @@
                                 <span class="leading-none">TRACKER</span>
                             </a>
 
-                            @if(!auth()->check())
 
-                                <a wire:navigate href="{{ route('login') }}" class="gap-2 items-center flex">
-                                    Sign in
-                                </a>
-
-                            @endif
 
                             @if(auth()->check())
 
@@ -67,11 +61,55 @@
                             @endif
 
                         </div>
-                        <div class="flex items-center gap-3">
-                            <a href="{{ route('profile.edit') }}">
-                                <i class="fa-sharp text-xl fa-solid fa-user"></i>
+                        @if(auth()->check())
+                            <div x-cloak @click.outside="open = false" x-data="{open: false, tab: 'friends'}" class="flex relative items-center gap-3">
+                                <button class="relative" id="friends-tab" @click="open = true; tab = 'friends';" href="{{ route('profile.edit') }}">
+                                    <i class="fa-sharp text-xl fa-solid fa-user-group relative z-50"></i>
+                                </button>
+
+                                <div class="h-[10px] w-[1px] bg-white z-50"></div>
+
+                                <button @click="open = true; tab = 'profile';" href="{{ route('profile.edit') }}">
+                                    <i class="fa-sharp text-xl fa-solid fa-gear relative z-50"></i>
+                                </button>
+
+
+
+                                <div x-show="open" class="absolute bg-black/90 w-[500px] border border-white/20 pt-[70px] top-[-20px] right-[-20px] z-10 bg-black p-3">
+                                    <div class="absolute left-5 top-5 z-50">
+                                        {{ auth()->user()->username }}#{{ auth()->user()->identifier }}
+                                    </div>
+                                    <livewire:friends-menu></livewire:friends-menu>
+
+                                    <div x-show="tab === 'profile'" class="grid gap-3">
+
+                                        <a href="{{ route('profile.edit') }}" class="h-[150px] hover:bg-white/10 transition duration-100 px-5 flex gap-3 items-center justify-center w-full p-2 border border-white/20">
+                                            <i class="fa-solid fa-user-pen"></i>
+                                            Edit Profile
+                                        </a>
+
+                                        <hr class="border-t-white/20">
+
+                                        <form method="post" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button class="hover:bg-white/10 transition duration-100 px-5 flex gap-3 items-center justify-center w-full p-2 border border-white/20">
+                                                <i class="fa-solid fa-left-to-bracket"></i>
+                                                Logout
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        @endif
+
+                        @if(!auth()->check())
+
+                            <a wire:navigate href="{{ route('login') }}" class="gap-2 items-center flex">
+                                Sign in
                             </a>
-                        </div>
+
+                        @endif
                     </div>
                 </div>
             </div>

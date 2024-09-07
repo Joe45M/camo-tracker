@@ -36,6 +36,7 @@ class Category extends Component
     public function render()
     {
 
+
         if (!session()->has('mode')) {
             session()->put('mode', 'multiplayer');
         }
