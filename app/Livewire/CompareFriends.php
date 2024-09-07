@@ -8,6 +8,7 @@ use App\Models\User;
 use Asantibanez\LivewireCharts\Models\PieChartModel;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use function Sodium\compare;
 
 class CompareFriends extends Component
 {
@@ -34,6 +35,13 @@ class CompareFriends extends Component
         }
 
         return view('livewire.compare-friends');
+    }
+
+    public function resetCompare()
+    {
+        session()->forget('compare_with');
+
+        $this->comparingWith = false;
     }
 
     public function compareWith(User $user)

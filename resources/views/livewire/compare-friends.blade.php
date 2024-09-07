@@ -1,19 +1,24 @@
 <div wire:poll  x-data="{open: false}" class="text-center h-64 border-l border-l-white/20 pl-5 lg:pl-20 items-center flex">
     <div>
         @if($comparingWith)
-            <div class="flex gap-10">
-                <div class="text-center">
-                    <div class="text-[48px]">
-                        {{ $myStats['completed'] }}
+            <div class="group relative">
+                <div class="flex gap-10">
+                    <div class="text-center">
+                        <div class="text-[48px]">
+                            {{ $myStats['completed'] }}
+                        </div>
+                        <p>You</p>
                     </div>
-                    <p>You</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-[48px]">
-                        {{ $theirStats['completed'] }}
+                    <div class="text-center">
+                        <div class="text-[48px]">
+                            {{ $theirStats['completed'] }}
+                        </div>
+                        <p>{{ $comparingWith->username }}</p>
                     </div>
-                    <p>{{ $comparingWith->username }}</p>
                 </div>
+
+                <button wire:click="resetCompare()" class="underline absolute bottom-[-50px] delay-100 translate-x-[-50%] left-1/2 text-brand text-center w-full hidden group-hover:block">
+                    Compare with <br> Someone else</button>
             </div>
         @else
             <div class="text-center text-[32px]">
