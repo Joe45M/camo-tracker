@@ -1,4 +1,4 @@
-<div wire:poll  x-data="{open: false}" class="text-center h-64 border-l border-l-white/20 pl-5 lg:pl-20 items-center flex">
+<div x-cloak wire:poll  x-data="{open: false}" class="text-center h-64 border-l border-l-white/20 pl-5 lg:pl-20 items-center flex">
     <div>
         @if($comparingWith)
             <div class="group relative">

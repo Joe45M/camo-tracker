@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+x-cloak {
+    display: none;
+}
 
 .gun-card {
     border: 1px solid rgba(255,255,255, 0.2);

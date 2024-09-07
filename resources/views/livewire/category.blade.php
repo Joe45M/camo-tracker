@@ -21,19 +21,19 @@
                 <livewire:gun-card :$gun :key="$gun->id"></livewire:gun-card>
             @endforeach
         @else
-            <div class="h-[150px] bg-slate-950 border p-3 border-white/20">
+            <div class="h-[150px] bg-[#0f0f0f] border p-3 border-white/20">
                 <div class="w-10 h-5 rounded-md bg-slate-800"></div>
             </div>
-            <div class="h-[150px] bg-slate-950 border p-3 border-white/20">
+            <div class="h-[150px] bg-[#0f0f0f] border p-3 border-white/20">
                 <div class="w-10 h-5 rounded-md bg-slate-800"></div>
             </div>
-            <div class="h-[150px] bg-slate-950 border p-3 border-white/20">
+            <div class="h-[150px] bg-[#0f0f0f] border p-3 border-white/20">
                 <div class="w-10 h-5 rounded-md bg-slate-800"></div>
             </div>
-            <div class="h-[150px] bg-slate-950 border p-3 border-white/20">
+            <div class="h-[150px] bg-[#0f0f0f] border p-3 border-white/20">
                 <div class="w-10 h-5 rounded-md bg-slate-800"></div>
             </div>
-            <div class="h-[150px] bg-slate-950 border p-3 border-white/20">
+            <div class="h-[150px] bg-[#0f0f0f] border p-3 border-white/20">
                 <div class="w-10 h-5 rounded-md bg-slate-800"></div>
             </div>
         @endif
