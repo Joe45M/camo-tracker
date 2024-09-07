@@ -35,7 +35,7 @@ jobs:
           node-version: 16.x
       - name: Install dependencies
         run: npm ci
-      - run: npm run production
+      - run: npm run build
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
