@@ -75,7 +75,7 @@
 
 
 
-                                <div x-show="open" class="absolute bg-black/90 w-[500px] border border-white/20 pt-[70px] top-[-20px] right-[-20px] z-10 bg-black p-3">
+                                <div x-show="open" class="absolute bg-black/90 w-screen lg:w-[500px] border border-white/20 pt-[70px] top-[-20px] right-[-20px] z-10 bg-black p-3">
                                     <div class="absolute left-5 top-5 z-50">
                                         {{ auth()->user()->username }}#{{ auth()->user()->identifier }}
                                     </div>
