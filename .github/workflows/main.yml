@@ -67,7 +67,7 @@ jobs:
       - name: cache and up
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: cd /var/www/vhosts/camos.elitegamerinsights.com/httpdocs/ && php artisan package:discover && php artisan vendor:publish --tag=config && php artisan view:clear && php artisan config:clear && php artisan config:cache && php artisan migrate && php artisan up && sudo chmod -R gu+w storage && sudo chmod -R guo+w storage
+          command: cd /var/www/vhosts/camos.elitegamerinsights.com/httpdocs/ && php artisan package:discover && php artisan vendor:publish --tag=config && php artisan view:clear && php artisan config:clear && php artisan config:cache && php artisan migrate && php artisan up && chown -R camos.elitegamerinsi_aqtqhcjiqpg:psaserv ./
           host: ${{ secrets.SSH_HOST }}
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
