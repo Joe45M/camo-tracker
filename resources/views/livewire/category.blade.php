@@ -8,7 +8,7 @@
             @foreach($labels as $slug => $label)
                 <a wire:navigate.hover
                    href="{{ route('category', $slug) }}"
-                   class="{{ $slug === $category ? 'opacity-100' : 'opacity-50' }} hidden lg:block hover:opacity-100
+                   class="{{ $slug === $category ? 'opacity-100 font-bold' : 'opacity-50' }} hidden hover:scale-110 duration-100 lg:block hover:opacity-100
                        "
                 >{{ $label }}</a>
                 <span class="separator hidden lg:block opacity-50"></span>
