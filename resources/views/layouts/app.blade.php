@@ -36,7 +36,7 @@
                 <div class="container mx-auto">
                     <div class="flex items-center justify-between">
                         <div class="flex gap-5 items-center">
-                            <a href="/" class="font-bold">
+                            <a href="/{{ auth()->check() ? 'dashboard' : '' }}" class="font-bold">
                                 <span class="block leading-none text-[26px]">CAMO</span>
                                 <span class="leading-none">TRACKER</span>
                             </a>
