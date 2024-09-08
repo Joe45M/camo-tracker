@@ -4,7 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $posts = (new \App\Settings\GlobalSettings())->home_posts;
+    $posts = \App\Models\Post::whereIn('id', $posts)->get();
+
+    return view('welcome', [
+        'posts' => $posts,
+    ]);
 });
 
 Route::get('/dashboard', \App\Livewire\Dashboard::class)->middleware(['auth', 'verified'])->name('dashboard');
