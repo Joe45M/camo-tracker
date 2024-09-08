@@ -1,5 +1,47 @@
 <div wire:init="init" class="container mx-auto pt-10">
 
+
+    @teleport('#context-menu')
+    <div class="group">
+
+        <div class="">
+            <div class="hidden lg:flex">
+                @foreach($labels as $slug => $label)
+{{--                    <livewire:image-card--}}
+{{--                        :href="route('category', $slug)"--}}
+{{--                        label="{{ $label }}"--}}
+{{--                        :category="$slug"--}}
+{{--                        :key="$slug"--}}
+{{--                        :height="'h-[90px] 2xl:h-[130px] text-center'"--}}
+{{--                        :useRoute="true">--}}
+
+{{--                    </livewire:image-card>--}}
+
+                    <a wire:navigate.hover
+                       href="{{ route('category', $slug) }}"
+                       class="image-card bg-slate-950 text-[24px] mb-3 border hover:border-brand/50 gun-card !bg-cover w-full p-3  flex items-end md:w-[420px]
+                       h-[120px] min-[2000px]:h-[150px] text-center
+                       hover:opacity-100 {{ $slug === $category ? 'opacity-100' : 'opacity-50' }}
+                       "
+                       style="background-image: url({{ asset('images/' . $slug . '.jpg') }});"
+                    >
+
+
+                        <p class="label">
+                            {{--        {{ $label }}--}}
+                        </p>
+                        <p class="hover-label">
+                            {{ $label }}
+                        </p>
+                    </a>
+
+                @endforeach
+            </div>
+        </div>
+    </div>
+    @endteleport
+
+
     <div class="flex gap-5 justify-between mb-3">
         <h1 class="text-2xl font-bold mb-5">
             {{ $name }} <span class="block lg:inline">| {{ $mode }}</span>

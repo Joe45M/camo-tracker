@@ -48,6 +48,16 @@ class Category extends Component
         return view('livewire.category', [
             'name' => $this->getCategory(),
             'chart' => $this->chart,
+            'labels' => [
+                'ar' => 'Assault rifles',
+                'smg' => 'SMG',
+                'shotgun' => 'Shotguns',
+                'marksman' => 'Marksman Rifles',
+                'lmg' => 'LMGs',
+                'sniper' => 'Snipers',
+                'pistol' => 'Pistols',
+                'launcher' => 'Launchers',
+            ]
         ])->layout('layouts.app');
     }
 

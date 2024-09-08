@@ -78,6 +78,10 @@ x-cloak {
     backdrop-filter: blur(10px);
 }
 
+#context-menu div:not(:first-child) {
+    display: none !important;
+}
+
 @view-transition {
     navigation: auto;
 }

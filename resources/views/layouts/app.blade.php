@@ -32,7 +32,7 @@
     <body class="font-sans antialiased text-white">
         <div class="min-h-screen bg-cover" style="background-image: url({{ asset('images/bg.jpg') }});">
 {{--            @include('layouts.navigation')--}}
-            <div class="border-b border-white/20 py-5">
+            <div class="border-b backdrop-blur-lg border-white/20 py-5">
                 <div class="container mx-auto">
                     <div class="flex items-center justify-between">
                         <div class="flex gap-5 items-center">
@@ -53,7 +53,7 @@
 
                             @if(request()->routeIs('category'))
 
-                                <a wire:navigate href="{{ route('dashboard') }}" class="gap-2 items-center flex">
+                                <a wire:navigate href="{{ route('dashboard') }}" class="gap-2 items-center flex lg:hidden">
                                     <i class="fa-solid text-sm fa-chevron-left"></i>
                                     Back to guns
                                 </a>
@@ -112,6 +112,9 @@
                         @endif
                     </div>
                 </div>
+            </div>
+            <div id="context-menu">
+
             </div>
 
             <!-- Page Heading -->
