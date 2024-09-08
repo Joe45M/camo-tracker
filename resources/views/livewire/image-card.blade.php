@@ -1,4 +1,9 @@
-<a wire:navigate.hover
+<a
+
+    @if(!$shouldNotNavigate)
+        wire:navigate.hover
+    @endif
+
    href="{{ $href }}"
    class="image-card bg-slate-950 text-[24px] mb-3 border hover:border-brand/50 gun-card w-full p-3  flex items-end md:w-[420px]
    {{ $height ? $height : 'md:h-[220px] h-[300px]' }}

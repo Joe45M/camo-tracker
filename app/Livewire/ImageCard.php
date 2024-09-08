@@ -12,6 +12,8 @@ class ImageCard extends Component
     public $height;
     public $useRoute;
 
+    public $shouldNotNavigate;
+
     public function render()
     {
         return view('livewire.image-card');
