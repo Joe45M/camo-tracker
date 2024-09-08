@@ -96,6 +96,31 @@ x-cloak {
     }
 }
 
+.fancy-box {
+    position: relative;
+}
+
+.fancy-box::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: -7px;
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26.5 1.5H1.5V26.5' stroke='%237BFB6F' stroke-opacity='0.5' stroke-width='1'/%3E%3C/svg%3E%0A");
+}
+
+.fancy-box::after {
+    content: "";
+    position: absolute;
+    left: calc(100% - 12px);
+    top: calc(100% - 12px);
+    width: 20px;
+    height: 20px;
+    transform: rotate(180deg);
+    background-image: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26.5 1.5H1.5V26.5' stroke='%237BFB6F' stroke-opacity='0.5' stroke-width='1'/%3E%3C/svg%3E%0A");
+}
+
 
 .content-style ul {
     padding-left: 15px;

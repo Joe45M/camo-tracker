@@ -17,7 +17,7 @@
                     <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{ $post->title }}</h1>
                 </header>
 
-                <div class="bg-black p-3 border border-white/20">
+                <div class="fancy-box bg-black p-3 border border-white/20">
                     <div class="content-style">
                         {!! $post->content !!}
                     </div>
