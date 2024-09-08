@@ -95,3 +95,27 @@ x-cloak {
         background: white;
     }
 }
+
+
+.content-style ul {
+    padding-left: 15px;
+    list-style: circle;
+}
+
+.content-style ul li {
+    margin-bottom: 5px;
+}
+
+.content-style {
+    font-size: 18px;
+}
+
+.content-style p {
+    margin-bottom: 15px;
+}
+
+.content-style h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
