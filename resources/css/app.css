@@ -85,3 +85,13 @@ x-cloak {
 @view-transition {
     navigation: auto;
 }
+
+
+@media (min-width: 992px) {
+    div .separator:not(:last-child) {
+        display: block;
+        height: 10px;
+        width: 1px;
+        background: white;
+    }
+}
