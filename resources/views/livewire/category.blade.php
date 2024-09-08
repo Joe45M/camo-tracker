@@ -1,9 +1,9 @@
 <div wire:init="init" class="container mx-auto pt-10">
     <div class="flex gap-5 justify-between mb-3">
         <div class="flex gap-3 items-center mb-5">
-            <h1 class="text-2xl font-bold">
-                {{ $name }} <span class="hidden lg:inline">|</span>
-            </h1>
+{{--            <h1 class="text-2xl font-bold">--}}
+{{--                {{ $name }} <span class="hidden lg:inline">|</span>--}}
+{{--            </h1>--}}
 
             @foreach($labels as $slug => $label)
                 <a wire:navigate.hover
