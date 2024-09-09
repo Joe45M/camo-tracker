@@ -10,13 +10,13 @@
                 <div class="flex gap-10">
                     <div class="text-center">
                         <div class="text-[48px]">
-                            {{ $myStats['completed'] }}
+                            {{ $myStats["completed"] }}
                         </div>
                         <p>You</p>
                     </div>
                     <div class="text-center">
                         <div class="text-[48px]">
-                            {{ $theirStats['completed'] }}
+                            {{ $theirStats["completed"] }}
                         </div>
                         <p>{{ $comparingWith->username }}</p>
                     </div>

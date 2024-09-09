@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route("register") }}">
         @csrf
 
         <!-- Name -->
@@ -87,13 +87,13 @@
         <div class="mt-4 flex items-center justify-end">
             <a
                 class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                href="{{ route('login') }}"
+                href="{{ route("login") }}"
             >
-                {{ __('Already registered?') }}
+                {{ __("Already registered?") }}
             </a>
 
             <x-primary-button class="ms-4">
-                {{ __('Register') }}
+                {{ __("Register") }}
             </x-primary-button>
         </div>
     </form>

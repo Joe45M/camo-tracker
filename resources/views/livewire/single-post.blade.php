@@ -9,7 +9,7 @@
                         <div class="mr-3 inline-flex items-center text-sm text-gray-900 dark:text-white">
                             <img
                                 class="mr-4 h-16 w-16 rounded-full"
-                                src="{{ asset('images/joe.png') }}"
+                                src="{{ asset("images/joe.png") }}"
                                 alt="Joe Moses"
                             />
                             <div>
@@ -18,7 +18,7 @@
                                 </a>
                                 <p class="text-base text-gray-500 dark:text-gray-400">Creator of Camo Tracker</p>
                                 <p class="text-base text-gray-500 dark:text-gray-400">
-                                    {{ $post->created_at->format('d M Y h:i') }}
+                                    {{ $post->created_at->format("d M Y h:i") }}
                                 </p>
                             </div>
                         </div>

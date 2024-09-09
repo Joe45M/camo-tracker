@@ -56,7 +56,7 @@ x-cloak {
 }
 
 .image-card::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;
@@ -98,7 +98,7 @@ x-cloak {
 }
 
 .fancy-box::before {
-    content: '';
+    content: "";
     position: absolute;
     left: -7px;
     top: -7px;
@@ -108,7 +108,7 @@ x-cloak {
 }
 
 .fancy-box::after {
-    content: '';
+    content: "";
     position: absolute;
     left: calc(100% - 12px);
     top: calc(100% - 12px);

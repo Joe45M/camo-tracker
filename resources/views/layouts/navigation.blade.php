@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex shrink-0 items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route("dashboard") }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __("Dashboard") }}
                     </x-nav-link>
                 </div>
             </div>
@@ -45,11 +45,11 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __("Profile") }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route("logout") }}">
                             @csrf
 
                             <x-dropdown-link
@@ -57,7 +57,7 @@
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();"
                             >
-                                {{ __('Log Out') }}
+                                {{ __("Log Out") }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -97,7 +97,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="space-y-1 pb-3 pt-2">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __("Dashboard") }}
             </x-responsive-nav-link>
         </div>
 
@@ -110,11 +110,11 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __("Profile") }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route("logout") }}">
                     @csrf
 
                     <x-responsive-nav-link
@@ -122,7 +122,7 @@
                         onclick="event.preventDefault();
                                         this.closest('form').submit();"
                     >
-                        {{ __('Log Out') }}
+                        {{ __("Log Out") }}
                     </x-responsive-nav-link>
                 </form>
             </div>
