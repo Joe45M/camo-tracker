@@ -1,6 +1,11 @@
-<div x-cloak wire:poll  x-data="{open: false}" class="text-center h-64 border-l border-l-white/20 pl-5 lg:pl-20 items-center flex">
+<div
+    x-cloak
+    wire:poll
+    x-data="{ open: false }"
+    class="flex h-64 items-center border-l border-l-white/20 pl-5 text-center lg:pl-20"
+>
     <div>
-        @if($comparingWith)
+        @if ($comparingWith)
             <div class="group relative">
                 <div class="flex gap-10">
                     <div class="text-center">
@@ -17,37 +22,47 @@
                     </div>
                 </div>
 
-                <button wire:click="resetCompare()" class="underline absolute bottom-[-50px] delay-100 translate-x-[-50%] left-1/2 text-brand text-center w-full hidden group-hover:block">
-                    Compare with <br> Someone else</button>
+                <button
+                    wire:click="resetCompare()"
+                    class="absolute bottom-[-50px] left-1/2 hidden w-full translate-x-[-50%] text-center text-brand underline delay-100 group-hover:block"
+                >
+                    Compare with
+                    <br />
+                    Someone else
+                </button>
             </div>
         @else
             <div class="text-center text-[32px]">
                 <i class="fa-sharp-duotone fa-solid fa-user-group"></i>
             </div>
-            <p class="text-[18px] mb-3">Compare with a friend</p>
+            <p class="mb-3 text-[18px]">Compare with a friend</p>
 
-            <button @click="open = true" class="hover:bg-brand/20 border border-brand py-3 px-10 hover:bg-brand">Set friend</button>
+            <button @click="open = true" class="border border-brand px-10 py-3 hover:bg-brand hover:bg-brand/20">
+                Set friend
+            </button>
         @endif
     </div>
 
-    <div x-show="open" class="fixed flex items-center justify-center left-0 w-full h-full top-0 z-[100] bg-black/80">
-        <div class="w-full lg:w-1/2 border border-white/20 bg-black/90 text-left">
-            <p class="text-[24px] leading-relaxed px-3 pt-3">Compare with a friend</p>
-            <p class="text-white/50 px-3">
-                Compare your progress against your friends to see who's ahead.
-            </p>
+    <div x-show="open" class="fixed left-0 top-0 z-[100] flex h-full w-full items-center justify-center bg-black/80">
+        <div class="w-full border border-white/20 bg-black/90 text-left lg:w-1/2">
+            <p class="px-3 pt-3 text-[24px] leading-relaxed">Compare with a friend</p>
+            <p class="px-3 text-white/50">Compare your progress against your friends to see who's ahead.</p>
 
-            <hr class="border-t-white/20 mt-3">
-            @if(auth()->user()->friends)
-                @foreach(auth()->user()->friends as $friend)
+            <hr class="mt-3 border-t-white/20" />
+            @if (auth()->user()->friends)
+                @foreach (auth()->user()->friends as $friend)
                     <div class="">
-                        <button @click="open = false" wire:click="compareWith({{ $friend->id }})" class="text-xl py-5 hover:bg-slate-900/50 block w-full text-left p-3 leading-none">{{ $friend->username}}</button>
+                        <button
+                            @click="open = false"
+                            wire:click="compareWith({{ $friend->id }})"
+                            class="block w-full p-3 py-5 text-left text-xl leading-none hover:bg-slate-900/50"
+                        >
+                            {{ $friend->username }}
+                        </button>
                     </div>
                 @endforeach
             @else
-                <p class="text-white/50">
-                    You don't have any friends yet.
-                </p>
+                <p class="text-white/50">You don't have any friends yet.</p>
             @endif
         </div>
     </div>
