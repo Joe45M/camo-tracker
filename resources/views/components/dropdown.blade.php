@@ -1,14 +1,14 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'bg-white py-1'])
+@props(["align" => "right", "width" => "48", "contentClasses" => "bg-white py-1"])
 
 @php
     $alignmentClasses = match ($align) {
-        'left' => 'start-0 ltr:origin-top-left rtl:origin-top-right',
-        'top' => 'origin-top',
-        default => 'end-0 ltr:origin-top-right rtl:origin-top-left',
+        "left" => "start-0 ltr:origin-top-left rtl:origin-top-right",
+        "top" => "origin-top",
+        default => "end-0 ltr:origin-top-right rtl:origin-top-left",
     };
 
     $width = match ($width) {
-        '48' => 'w-48',
+        "48" => "w-48",
         default => $width,
     };
 @endphp

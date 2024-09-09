@@ -19,7 +19,7 @@
             </div>
             <div class="my-10 lg:my-0">
                 <img
-                    src="{{ asset('images/mac.png') }}"
+                    src="{{ asset("images/mac.png") }}"
                     class="objecr-cover"
                     alt="Homepage of the website camo tracker"
                 />
@@ -27,7 +27,7 @@
 
             <div class="mt-5 flex">
                 <a
-                    href="{{ route('register') }}"
+                    href="{{ route("register") }}"
                     class="border border-brand bg-brand/20 p-3 px-10 text-[22px] hover:bg-brand"
                 >
                     Sign up
@@ -42,9 +42,9 @@
         <div class="grid gap-5 lg:grid-cols-3">
             @foreach ($posts as $post)
                 <a
-                    href="{{ route('post', $post->id) }}"
+                    href="{{ route("post", $post->id) }}"
                     class="relative flex h-[210px] flex-col justify-end border border-white/20 bg-cover bg-center p-5 duration-100 hover:scale-105"
-                    style="background-image: url({{ $post->getFirstMediaUrl('thumbnail') }})"
+                    style="background-image: url({{ $post->getFirstMediaUrl("thumbnail") }})"
                 >
                     <span class="relative z-10 text-[24px]">{{ $post->title }}</span>
 

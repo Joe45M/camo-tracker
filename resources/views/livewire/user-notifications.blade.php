@@ -6,7 +6,7 @@
             </div>
             @foreach ($notifications as $noti)
                 <div class="p-3">
-                    @if ($noti->type === 'App\Notifications\JoinDiscordNotification')
+                    @if ($noti->type === "App\Notifications\JoinDiscordNotification")
                         <p>
                             Hi! Thanks for using Camo Tracker. If you find the website helpful, it would be awesome if
                             you could join the Discord server!

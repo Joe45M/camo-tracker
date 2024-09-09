@@ -1,16 +1,16 @@
 @props([
-    'name',
-    'show' => false,
-    'maxWidth' => '2xl',
+    "name",
+    "show" => false,
+    "maxWidth" => "2xl",
 ])
 
 @php
     $maxWidth = [
-        'sm' => 'sm:max-w-sm',
-        'md' => 'sm:max-w-md',
-        'lg' => 'sm:max-w-lg',
-        'xl' => 'sm:max-w-xl',
-        '2xl' => 'sm:max-w-2xl',
+        "sm" => "sm:max-w-sm",
+        "md" => "sm:max-w-md",
+        "lg" => "sm:max-w-lg",
+        "xl" => "sm:max-w-xl",
+        "2xl" => "sm:max-w-2xl",
     ][$maxWidth];
 @endphp
 
@@ -35,7 +35,7 @@
         $watch('show', (value) => {
             if (value) {
                 document.body.classList.add('overflow-y-hidden')
-                {{ $attributes->has('focusable') ? 'setTimeout(() => firstFocusable().focus(), 100)' : '' }}
+                {{ $attributes->has("focusable") ? "setTimeout(() => firstFocusable().focus(), 100)" : "" }}
             } else {
                 document.body.classList.remove('overflow-y-hidden')
             }
@@ -49,7 +49,7 @@
     x-on:keydown.shift.tab.prevent="prevFocusable().focus()"
     x-show="show"
     class="fixed inset-0 z-50 overflow-y-auto px-4 py-6 sm:px-0"
-    style="display: {{ $show ? 'block' : 'none' }}"
+    style="display: {{ $show ? "block" : "none" }}"
 >
     <div
         x-show="show"

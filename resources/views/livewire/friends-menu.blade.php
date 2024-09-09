@@ -6,7 +6,7 @@
             class="w-full border border-white/20 bg-transparent px-3 py-2 placeholder:text-white/20"
             placeholder="add a friend - jm45x#2215"
         />
-        <button href="{{ route('register') }}" class="border border-brand p-3 px-10 hover:bg-brand hover:bg-brand/20">
+        <button href="{{ route("register") }}" class="border border-brand p-3 px-10 hover:bg-brand hover:bg-brand/20">
             Add
         </button>
     </form>
@@ -27,7 +27,7 @@
 
         <div>
             @if (count(auth()->user()->pendingFriendsFrom) || count(auth()->user()->pendingFriendsTo))
-                @teleport('#friends-tab')
+                @teleport("#friends-tab")
                     <div class="absolute -left-3 -top-3 z-[70] rounded-full text-sm font-bold">1</div>
                 @endteleport
 

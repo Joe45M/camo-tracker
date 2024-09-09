@@ -8,8 +8,8 @@
             @foreach ($labels as $slug => $label)
                 <a
                     wire:navigate.hover
-                    href="{{ route('category', $slug) }}"
-                    class="{{ $slug === $category ? 'font-bold opacity-100' : 'opacity-50' }} hidden duration-100 hover:scale-110 hover:opacity-100 lg:block"
+                    href="{{ route("category", $slug) }}"
+                    class="{{ $slug === $category ? "font-bold opacity-100" : "opacity-50" }} hidden duration-100 hover:scale-110 hover:opacity-100 lg:block"
                 >
                     {{ $label }}
                 </a>
@@ -20,13 +20,13 @@
         <div class="flex self-end border border-white/20 text-xl">
             <button
                 wire:click="setMode('multiplayer')"
-                class="{{ $mode === 'multiplayer' ? 'bg-green-500' : 'bg-slate-950' }} p-3"
+                class="{{ $mode === "multiplayer" ? "bg-green-500" : "bg-slate-950" }} p-3"
             >
                 <i class="fa-solid fa-people-group"></i>
             </button>
             <button
                 wire:click="setMode('zombies')"
-                class="{{ $mode === 'zombies' ? 'bg-green-500' : 'bg-slate-950' }} p-3"
+                class="{{ $mode === "zombies" ? "bg-green-500" : "bg-slate-950" }} p-3"
             >
                 <i class="fa-solid fa-biohazard"></i>
             </button>
@@ -34,8 +34,8 @@
     </div>
 
     <div class="grid gap-5 lg:grid-cols-5">
-        @if ($guns)
-            @foreach ($guns as $gun)
+        @if($guns)
+            @foreach($guns as $gun)
                 <livewire:gun-card :$gun :key="$gun->id"></livewire:gun-card>
             @endforeach
         @else
@@ -66,8 +66,8 @@
         <div class="flex h-64 items-center border-l border-l-white/20 pl-5 text-center lg:px-20">
             <div>
                 <div class="text-center text-[48px]">
-                    {{ $stats['completed'] }} /
-                    {{ $stats['total'] }}
+                    {{ $stats["completed"] }} /
+                    {{ $stats["total"] }}
                 </div>
                 {{ strtoupper($category) }} camos completed.
             </div>
