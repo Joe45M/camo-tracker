@@ -133,6 +133,15 @@
             <!-- Page Content -->
             <main class="px-3 lg:px-0">
                 {{ $slot }}
+
+
+
+                @if(auth()->user()->unreadNotifications->count())
+                    <livewire:user-notifications></livewire:user-notifications>
+                @endif
+
+
+
             </main>
 
             <livewire:footer></livewire:footer>
