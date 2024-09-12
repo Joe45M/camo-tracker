@@ -30,7 +30,7 @@
     <body class="font-sans text-white antialiased">
         <div class="min-h-screen bg-cover" style="background-image: url({{ asset("images/bg.jpg") }})">
             {{-- @include('layouts.navigation') --}}
-            <div class="border-b border-white/20 py-5 backdrop-blur-lg">
+            <div class="border-b border-white/20 py-5 z-[100] relative backdrop-blur-lg">
                 <div class="container mx-auto">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-5">
@@ -80,7 +80,7 @@
 
                                 <div
                                     x-show="open"
-                                    class="absolute right-[-20px] top-[-20px] z-10 w-screen border border-white/20 bg-black bg-black/90 p-3 pt-[70px] lg:w-[500px]"
+                                    class="absolute right-[-20px] top-[-20px] w-screen border border-white/20 bg-black bg-black/90 p-3 pt-[70px] lg:w-[500px]"
                                 >
                                     <div class="absolute left-5 top-5 z-50">
                                         {{ auth()->user()->username }}#{{ auth()->user()->identifier }}
@@ -137,7 +137,7 @@
             <main class="px-3 lg:px-0">
                 {{ $slot }}
 
-                @if (auth()->user()->unreadNotifications->count())
+                @if (auth()?->user()?->unreadNotifications?->count())
                     <livewire:user-notifications></livewire:user-notifications>
                 @endif
             </main>

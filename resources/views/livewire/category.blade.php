@@ -1,4 +1,4 @@
-<div wire:init="init" class="container mx-auto pt-10">
+<div wire:init="init" class="container mx-auto pt-[1.9rem]">
     <div class="mb-3 flex justify-between gap-5">
         <div class="mb-5 flex items-center gap-3">
             {{-- <h1 class="text-2xl font-bold"> --}}
@@ -63,13 +63,20 @@
         <div class="h-64 pt-10">
             <livewire:livewire-pie-chart key="{{ $chart->reactiveKey() }}" :pie-chart-model="$chart" />
         </div>
-        <div class="flex h-64 items-center border-l border-l-white/20 pl-5 text-center lg:px-20">
+        <div class="flex group relative h-64 items-center border-l border-l-white/20 pl-5 text-center lg:px-20">
             <div>
                 <div class="text-center text-[48px]">
                     {{ $stats["completed"] }} /
                     {{ $stats["total"] }}
                 </div>
-                {{ strtoupper($category) }} camos completed.
+                {{ session('completed_scope', 'category') === 'category' ? strtoupper($category) : 'All' }} camos completed.
+
+                <button
+                    wire:click="toggleCategoryFilter()"
+                    class="absolute bottom-[20px] left-1/2 hidden w-full translate-x-[-50%] text-center text-brand underline delay-100 group-hover:block"
+                >
+                    Toggle filter
+                </button>
             </div>
         </div>
         <livewire:compare-friends :mode="$mode" :category="$category"></livewire:compare-friends>

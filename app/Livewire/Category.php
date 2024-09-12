@@ -83,8 +83,28 @@ class Category extends Component
         $this->render();
     }
 
+    public function toggleCategoryFilter()
+    {
+        $scope = session('completed_scope', 'category');
+
+        $newValue = ($scope === 'category' ? 'all' : 'category'); // swap to category if all, else swap to all.
+
+        session()->put('completed_scope', $newValue);
+
+        $this->render();
+    }
+
     public function charts() {
-        $challenges = GunChallenge::whereRelation('gun', 'category', $this->category)
+        $challenges = GunChallenge::query();
+
+        $scope = session('completed_scope', 'category');
+
+
+        if ($scope === 'category') {
+            $challenges->whereRelation('gun', 'category', $this->category);
+        }
+
+        $challenges = $challenges
             ->where('mode', $this->mode)
             ->get();
 
