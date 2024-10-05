@@ -2,7 +2,7 @@
     <div class="container mx-auto mt-10 px-3">
         <div class="grid lg:grid-cols-2">
             <div>
-                <div class="pt-10 text-[36px] font-bold lg:pt-24 lg:text-[56px]">
+                <div class="pt-10 text-[36px] lg:leading-[60px] font-bold lg:pt-24 lg:text-[56px]">
                     Track the
                     <span class="text-brand">
                         camo grind
@@ -11,7 +11,7 @@
                     in Black Ops 6
                 </div>
 
-                <p class="mt-10 text-[22px] text-white/50">
+                <p class="mt-10 text-[24px] text-white/50">
                     Track your camo progression across
                     <br />
                     Multiplayer and Zombies in Black Ops 6.
