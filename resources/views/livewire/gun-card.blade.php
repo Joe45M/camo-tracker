@@ -1,5 +1,4 @@
 <div x-data="{ open: false }" class="block border border-white/20 bg-slate-950">
-    {{-- {{ dump(Auth::user()->gunChallenges) }} --}}
 
     <div class="h-[150px] bg-cover p-3" style="background-image: url({{ $gun->getFirstMediaUrl("gun") }})">
         <span class="text-xl uppercase">{{ $gun->name }}</span>

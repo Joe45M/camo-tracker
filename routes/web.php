@@ -10,6 +10,7 @@ Route::get('/', function () {
 
     return view('welcome', [
         'posts' => $posts,
+        'guns' => \App\Models\Gun::all(),
     ]);
 });
 
