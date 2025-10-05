@@ -10,13 +10,13 @@
                         camo grind
                         <br class="hidden lg:block" />
                     </span>
-                            in Black Ops 6
+                            in Black Ops 7
                         </div>
 
                         <p class="mt-10 text-[24px] text-white/50">
                             Track your camo progression across
                             <br />
-                            Multiplayer and Zombies in Black Ops 6.
+                            Multiplayer and Zombies in Black Ops 7.
                         </p>
                     </div>
 

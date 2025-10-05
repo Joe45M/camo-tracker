@@ -7,7 +7,7 @@
                 :category="'ar'"
             ></livewire:image-card>
             <livewire:image-card
-                :href="'https://discord.gg/nWrZTp8N'"
+                :href="'https://discord.gg/EeTyB25K7g'"
                 :shouldNotNavigate="true"
                 label="Join Discord"
                 :category="'discord'"

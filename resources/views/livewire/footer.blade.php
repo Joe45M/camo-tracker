@@ -11,7 +11,7 @@
                 <p class="mt-10">
                     I'm
                     <a href="https://x.com/joemoses33">Joe</a>
-                    , I created Camo Tracker so that I can easily track my camo grind in Black Ops 6. People were
+                    , I created Camo Tracker so that I can easily track my camo grind in Black Ops 7. People were
                     interested, so here we are - Camo Tracker is now publicly available, and free. Enjoy!
                 </p>
             </div>

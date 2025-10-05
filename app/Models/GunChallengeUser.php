@@ -9,7 +9,7 @@ class GunChallengeUser extends Model
 {
     use HasFactory;
 
-
+    protected $table = 'gun_challenge_user';
     public $fillable = [
         'gun_challenge_id',
         'user_id',
