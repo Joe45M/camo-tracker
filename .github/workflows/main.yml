@@ -49,7 +49,7 @@ jobs:
         with:
           command: cd /var/www/laravel/ && php artisan down
           host: ${{ secrets.SSH_HOST }}
-          username: root
+          username: ubuntu
           password: ${{ secrets.SSH_PASSWORD }}
       - name: Deploy Laravel app
         run: rsync -avz ./public ./app ./routes ./database ./config ./resources/views ./vendor ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
