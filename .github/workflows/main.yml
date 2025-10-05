@@ -53,18 +53,8 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
-      - name: Deploy app
-        run: rsync -avz ./app ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
-      - name: Deploy routes
-        run: rsync -avz ./routes ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
-      - name: Deploy database
-        run: rsync -avz ./database ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
-      - name: Deploy config
-        run: rsync -avz ./config ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
-      - name: Deploy views
-        run: rsync -avz ./resources/views ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/resources/
-      - name: Deploy vendor
-        run: rsync -avz ./vendor ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
+      - name: Deploy Laravel app
+        run: rsync -avz ./app ./routes ./database ./config ./resources/views ./vendor ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
       - name: cache and up
         uses: garygrossgarten/github-action-ssh@release
         with:
