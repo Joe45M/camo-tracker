@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <div class="grid gap-5 lg:grid-cols-5">
+    <div class="grid gap-5 lg:grid-cols-4">
         @if($guns)
             @foreach($guns as $gun)
                 <livewire:gun-card :$gun :key="$gun->id"></livewire:gun-card>

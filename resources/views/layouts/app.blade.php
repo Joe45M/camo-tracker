@@ -36,7 +36,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-5">
                             <a href="/{{ auth()->check() ? "dashboard" : "" }}" class="font-bold">
-                                <span class="block text-[26px] leading-none">CAMO</span>
+                                <span class="block text-[26px] text-brand leading-none">CAMO</span>
                                 <span class="leading-none">TRACKER</span>
                             </a>
 

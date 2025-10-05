@@ -5,7 +5,7 @@
 
         <div class="flex justify-end gap-3 pt-[60px]">
             @if($gun->gun_challenges)
-                @foreach($gun->gun_challenges()->where("mode", session()->get("mode"))->get() as $challenge)
+                @foreach($gun->gun_challenges()->where("mode", session()->get("mode"))->get()->take(5) as $challenge)
                     <button
                         x-show="!open"
                         :class="open ? 'flex' : '' "

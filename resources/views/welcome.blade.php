@@ -68,6 +68,7 @@
                 </div>
 
             </div>
+            <hr class="my-20 border-t-white/20" />
 
             <h3 class="mb-5 text-[32px] font-bold">Camo Tracker news</h3>
 
