@@ -17,6 +17,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+  
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
@@ -44,30 +45,30 @@ jobs:
       - name: Adding Known Hosts
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Deploy public
-        run: rsync -avz ./public ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
+        run: rsync -avz ./public ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
       - name: cache
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: cd /var/www/vhosts/camos.elitegamerinsights.com/httpdocs/ && php artisan down
+          command: cd /var/www/laravel/ && php artisan down
           host: ${{ secrets.SSH_HOST }}
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
       - name: Deploy app
-        run: rsync -avz ./app ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
+        run: rsync -avz ./app ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
       - name: Deploy routes
-        run: rsync -avz ./routes ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
+        run: rsync -avz ./routes ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
       - name: Deploy database
-        run: rsync -avz ./database ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
+        run: rsync -avz ./database ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
       - name: Deploy config
-        run: rsync -avz ./config ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
+        run: rsync -avz ./config ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
       - name: Deploy views
-        run: rsync -avz ./resources/views ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/resources/
+        run: rsync -avz ./resources/views ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/resources/
       - name: Deploy vendor
-        run: rsync -avz ./vendor ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/vhosts/camos.elitegamerinsights.com/httpdocs/
+        run: rsync -avz ./vendor ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
       - name: cache and up
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: cd /var/www/vhosts/camos.elitegamerinsights.com/httpdocs/ && chown -R camos.elitegamerinsi_aqtqhcjiqpg:psaserv ./ && php artisan up && php artisan migrate
+          command: cd /var/www/laravel/ && chown -R www-data:www-data ./ && php artisan up && php artisan migrate
           host: ${{ secrets.SSH_HOST }}
-          username: root
+          username: ubuntu
           password: ${{ secrets.SSH_PASSWORD }}
