@@ -29,7 +29,7 @@
         @endif
     </head>
     <body class="font-sans text-white antialiased">
-        <div class="min-h-screen bg-cover" style="background-image: url({{ asset("images/bg.jpg") }})">
+        <div class="min-h-screen bg-cover" style="background-image: url({{ asset("images/header.jpg") }})">
             {{-- @include('layouts.navigation') --}}
             <div class="border-b border-white/20 py-5 z-[100] relative backdrop-blur-lg">
                 <div class="container mx-auto">
