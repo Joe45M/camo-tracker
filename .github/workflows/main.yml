@@ -52,7 +52,7 @@ jobs:
           username: ubuntu
           password: ${{ secrets.SSH_PASSWORD }}
       - name: Deploy Laravel app
-        run: rsync -avz ./public ./app ./routes ./database ./config ./resources/views ./vendor ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
+        run: rsync -avz ./public ./app ./routes ./database ./config ./resources/ ./vendor ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/laravel/
       - name: cache and up
         uses: garygrossgarten/github-action-ssh@release
         with:
